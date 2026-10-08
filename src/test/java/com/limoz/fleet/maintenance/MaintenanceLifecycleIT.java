@@ -47,7 +47,12 @@ class MaintenanceLifecycleIT extends AbstractIntegrationTest {
     private long workshopId() throws Exception {
         String body = mockMvc.perform(get("/api/v1/workshops").header("Authorization", adminToken))
                 .andExpect(status().isOk()).andReturn().getResponse().getContentAsString();
-        return json.readTree(body).get(0).get("id").asLong();
+        for (JsonNode node : json.readTree(body)) {
+            if ("INTERNAL".equals(node.get("workshopType").asText())) {
+                return node.get("id").asLong();
+            }
+        }
+        throw new IllegalStateException("No internal workshop");
     }
 
     private long serviceTypeId(String code) throws Exception {

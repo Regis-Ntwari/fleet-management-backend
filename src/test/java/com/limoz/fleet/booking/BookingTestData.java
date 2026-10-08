@@ -44,7 +44,7 @@ public class BookingTestData {
 
     public CustomerResponse customer() {
         int n = SEQ.incrementAndGet();
-        return customerService.create(new CustomerRequest("CL" + n, "Client " + n + " Ltd", CustomerType.CORPORATE, "10" + n + "00",
+        return customerService.create(new CustomerRequest("BKC" + n, "Booking Client " + n + " Ltd", CustomerType.CORPORATE, "77" + n + "00",
                 "Contact " + n, "client" + n + "@test.limoz.rw", "+2507880" + n, "KN 4 Ave", "Kigali", "Rwanda", null, null, true, null));
     }
 
