@@ -1,6 +1,6 @@
 package com.limoz.fleet.booking.dto;
 
-import com.limoz.fleet.booking.Shift;
+import com.limoz.fleet.booking.domain.Shift;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 

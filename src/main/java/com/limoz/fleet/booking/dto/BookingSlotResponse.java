@@ -1,7 +1,7 @@
 package com.limoz.fleet.booking.dto;
 
-import com.limoz.fleet.booking.Shift;
-import com.limoz.fleet.booking.SlotStatus;
+import com.limoz.fleet.booking.domain.Shift;
+import com.limoz.fleet.booking.domain.SlotStatus;
 import com.limoz.fleet.driver.dto.DriverSummary;
 import com.limoz.fleet.vehicle.dto.VehicleSummary;
 

@@ -1,6 +1,6 @@
 package com.limoz.fleet.fuel.dto;
 
-import com.limoz.fleet.vehicle.FuelType;
+import com.limoz.fleet.vehicle.domain.FuelType;
 
 import java.time.LocalDate;
 

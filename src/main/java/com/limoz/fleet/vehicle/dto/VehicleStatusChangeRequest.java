@@ -1,6 +1,6 @@
 package com.limoz.fleet.vehicle.dto;
 
-import com.limoz.fleet.vehicle.VehicleStatus;
+import com.limoz.fleet.vehicle.domain.VehicleStatus;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 

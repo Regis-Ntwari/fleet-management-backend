@@ -1,6 +1,6 @@
 package com.limoz.fleet.telematics.movement.dto;
 
-import com.limoz.fleet.telematics.movement.MovementFlag;
+import com.limoz.fleet.telematics.movement.domain.MovementFlag;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

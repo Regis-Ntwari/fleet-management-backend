@@ -1,5 +1,8 @@
 package com.limoz.fleet.seed;
 
+import com.limoz.fleet.seed.domain.SeedContext;
+import com.limoz.fleet.seed.domain.SeedStep;
+
 import com.limoz.fleet.support.AbstractIntegrationTest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

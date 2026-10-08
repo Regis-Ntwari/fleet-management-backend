@@ -1,5 +1,10 @@
 package com.limoz.fleet.maintenance;
 
+import com.limoz.fleet.maintenance.domain.MaintenanceRecord;
+import com.limoz.fleet.maintenance.domain.MaintenanceType;
+import com.limoz.fleet.maintenance.domain.Priority;
+import com.limoz.fleet.maintenance.domain.TaskStatus;
+
 import com.limoz.fleet.maintenance.dto.MaintenanceCancelRequest;
 import com.limoz.fleet.maintenance.dto.MaintenanceCommentRequest;
 import com.limoz.fleet.maintenance.dto.MaintenanceCompleteRequest;

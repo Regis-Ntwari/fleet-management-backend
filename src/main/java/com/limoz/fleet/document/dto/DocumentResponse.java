@@ -1,6 +1,6 @@
 package com.limoz.fleet.document.dto;
 
-import com.limoz.fleet.document.DocumentStatus;
+import com.limoz.fleet.document.domain.DocumentStatus;
 
 import java.math.BigDecimal;
 import java.time.Instant;

@@ -1,6 +1,6 @@
 package com.limoz.fleet.maintenance.inventory.dto;
 
-import com.limoz.fleet.maintenance.inventory.StockStatus;
+import com.limoz.fleet.maintenance.inventory.domain.StockStatus;
 
 import java.math.BigDecimal;
 import java.time.Instant;

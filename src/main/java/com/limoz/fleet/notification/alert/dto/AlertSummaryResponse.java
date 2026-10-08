@@ -1,8 +1,8 @@
 package com.limoz.fleet.notification.alert.dto;
 
-import com.limoz.fleet.notification.NotificationSeverity;
-import com.limoz.fleet.notification.alert.AlertStatus;
-import com.limoz.fleet.notification.alert.AlertType;
+import com.limoz.fleet.notification.domain.NotificationSeverity;
+import com.limoz.fleet.notification.alert.domain.AlertStatus;
+import com.limoz.fleet.notification.alert.domain.AlertType;
 
 import java.time.Instant;
 import java.util.List;

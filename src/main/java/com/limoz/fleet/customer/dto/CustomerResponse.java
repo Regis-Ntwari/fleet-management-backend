@@ -1,6 +1,6 @@
 package com.limoz.fleet.customer.dto;
 
-import com.limoz.fleet.customer.CustomerType;
+import com.limoz.fleet.customer.domain.CustomerType;
 
 import java.math.BigDecimal;
 import java.time.Instant;

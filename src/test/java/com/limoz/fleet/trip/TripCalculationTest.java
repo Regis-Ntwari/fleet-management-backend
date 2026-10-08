@@ -1,5 +1,8 @@
 package com.limoz.fleet.trip;
 
+import com.limoz.fleet.trip.domain.TripCalculations;
+import com.limoz.fleet.trip.domain.TripStatus;
+
 import com.limoz.fleet.common.exception.BusinessRuleException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

@@ -1,7 +1,7 @@
 package com.limoz.fleet.telematics.dto;
 
-import com.limoz.fleet.telematics.FuelSensorStatus;
-import com.limoz.fleet.telematics.GpsStatus;
+import com.limoz.fleet.telematics.domain.FuelSensorStatus;
+import com.limoz.fleet.telematics.domain.GpsStatus;
 import com.limoz.fleet.vehicle.dto.VehicleSummary;
 
 import java.math.BigDecimal;

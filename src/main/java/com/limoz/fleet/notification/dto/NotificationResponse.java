@@ -1,6 +1,6 @@
 package com.limoz.fleet.notification.dto;
 
-import com.limoz.fleet.notification.NotificationSeverity;
+import com.limoz.fleet.notification.domain.NotificationSeverity;
 
 import java.time.Instant;
 

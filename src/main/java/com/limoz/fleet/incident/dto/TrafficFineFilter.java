@@ -1,6 +1,6 @@
 package com.limoz.fleet.incident.dto;
 
-import com.limoz.fleet.incident.FineStatus;
+import com.limoz.fleet.incident.domain.FineStatus;
 
 import java.time.LocalDate;
 import java.util.List;

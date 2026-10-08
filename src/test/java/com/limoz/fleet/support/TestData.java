@@ -1,14 +1,14 @@
 package com.limoz.fleet.support;
 
-import com.limoz.fleet.driver.DriverService;
-import com.limoz.fleet.driver.EmploymentStatus;
+import com.limoz.fleet.driver.service.DriverService;
+import com.limoz.fleet.driver.domain.EmploymentStatus;
 import com.limoz.fleet.driver.dto.DriverRequest;
 import com.limoz.fleet.driver.dto.DriverResponse;
-import com.limoz.fleet.vehicle.FuelType;
-import com.limoz.fleet.vehicle.OwnershipType;
-import com.limoz.fleet.vehicle.Transmission;
-import com.limoz.fleet.vehicle.VehicleCategoryRepository;
-import com.limoz.fleet.vehicle.VehicleService;
+import com.limoz.fleet.vehicle.domain.FuelType;
+import com.limoz.fleet.vehicle.domain.OwnershipType;
+import com.limoz.fleet.vehicle.domain.Transmission;
+import com.limoz.fleet.vehicle.repository.VehicleCategoryRepository;
+import com.limoz.fleet.vehicle.service.VehicleService;
 import com.limoz.fleet.vehicle.dto.VehicleRequest;
 import com.limoz.fleet.vehicle.dto.VehicleResponse;
 import lombok.RequiredArgsConstructor;

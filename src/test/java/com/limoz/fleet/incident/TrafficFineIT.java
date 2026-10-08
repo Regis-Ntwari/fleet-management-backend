@@ -1,6 +1,6 @@
 package com.limoz.fleet.incident;
 
-import com.limoz.fleet.finance.PaymentMethod;
+import com.limoz.fleet.finance.domain.PaymentMethod;
 import com.limoz.fleet.finance.dto.SettlementRequest;
 import com.limoz.fleet.incident.dto.FineNoteRequest;
 import com.limoz.fleet.incident.dto.TrafficFineRequest;

@@ -1,5 +1,9 @@
 package com.limoz.fleet.telematics;
 
+import com.limoz.fleet.telematics.domain.FuelSensorStatus;
+import com.limoz.fleet.telematics.domain.TelematicsDevice;
+import com.limoz.fleet.telematics.domain.VehiclePosition;
+
 import com.limoz.fleet.security.Roles;
 import com.limoz.fleet.support.AbstractIntegrationTest;
 import com.limoz.fleet.support.TestData;

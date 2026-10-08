@@ -1,9 +1,9 @@
 package com.limoz.fleet.reporting;
 
-import com.limoz.fleet.reporting.export.CsvReportExporter;
-import com.limoz.fleet.reporting.export.ExcelReportExporter;
-import com.limoz.fleet.reporting.export.PdfReportExporter;
-import com.limoz.fleet.reporting.export.ReportTable;
+import com.limoz.fleet.reporting.export.service.CsvReportExporter;
+import com.limoz.fleet.reporting.export.service.ExcelReportExporter;
+import com.limoz.fleet.reporting.export.service.PdfReportExporter;
+import com.limoz.fleet.reporting.export.domain.ReportTable;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.junit.jupiter.api.Test;

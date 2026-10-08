@@ -1,5 +1,7 @@
 package com.limoz.fleet.fuel;
 
+import com.limoz.fleet.fuel.domain.FuelPaymentMethod;
+
 import com.limoz.fleet.fuel.dto.FuelTransactionRequest;
 import com.limoz.fleet.security.Roles;
 import com.limoz.fleet.support.AbstractIntegrationTest;

@@ -1,7 +1,7 @@
 package com.limoz.fleet.audit.dto;
 
 import com.fasterxml.jackson.annotation.JsonRawValue;
-import com.limoz.fleet.audit.AuditAction;
+import com.limoz.fleet.audit.domain.AuditAction;
 
 import java.time.Instant;
 

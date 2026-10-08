@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  * Strongly typed application configuration bound from the {@code fleet.*} namespace.
- * Operational thresholds that operations staff may change live in {@link com.limoz.fleet.settings.SystemSetting}
+ * Operational thresholds that operations staff may change live in {@link com.limoz.fleet.settings.domain.SystemSetting}
  * instead; this class only holds deployment-level configuration.
  */
 @Validated

@@ -1,9 +1,9 @@
 package com.limoz.fleet.trip.dto;
 
-import com.limoz.fleet.booking.Booking;
-import com.limoz.fleet.customer.Customer;
-import com.limoz.fleet.driver.Driver;
-import com.limoz.fleet.vehicle.Vehicle;
+import com.limoz.fleet.booking.domain.Booking;
+import com.limoz.fleet.customer.domain.Customer;
+import com.limoz.fleet.driver.domain.Driver;
+import com.limoz.fleet.vehicle.domain.Vehicle;
 
 import java.time.Instant;
 

@@ -2,8 +2,8 @@ package com.limoz.fleet.finance.dto;
 
 import com.limoz.fleet.customer.dto.CustomerSummary;
 import com.limoz.fleet.customer.dto.PurchaseOrderSummary;
-import com.limoz.fleet.finance.InvoiceStatus;
-import com.limoz.fleet.finance.PaymentTerms;
+import com.limoz.fleet.finance.domain.InvoiceStatus;
+import com.limoz.fleet.finance.domain.PaymentTerms;
 
 import java.math.BigDecimal;
 import java.time.Instant;

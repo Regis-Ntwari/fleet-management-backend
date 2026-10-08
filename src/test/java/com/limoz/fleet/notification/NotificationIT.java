@@ -5,7 +5,7 @@ import com.limoz.fleet.common.event.Severity;
 import com.limoz.fleet.security.Roles;
 import com.limoz.fleet.support.AbstractIntegrationTest;
 import com.limoz.fleet.support.TestData;
-import com.limoz.fleet.vehicle.VehicleStatus;
+import com.limoz.fleet.vehicle.domain.VehicleStatus;
 import com.limoz.fleet.vehicle.dto.VehicleResponse;
 import com.limoz.fleet.vehicle.dto.VehicleStatusChangeRequest;
 import org.junit.jupiter.api.DisplayName;

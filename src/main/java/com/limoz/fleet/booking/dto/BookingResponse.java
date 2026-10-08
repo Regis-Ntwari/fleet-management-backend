@@ -1,8 +1,8 @@
 package com.limoz.fleet.booking.dto;
 
-import com.limoz.fleet.booking.BookingSource;
-import com.limoz.fleet.booking.BookingStatus;
-import com.limoz.fleet.booking.ServiceType;
+import com.limoz.fleet.booking.domain.BookingSource;
+import com.limoz.fleet.booking.domain.BookingStatus;
+import com.limoz.fleet.booking.domain.ServiceType;
 import com.limoz.fleet.customer.dto.CustomerSummary;
 
 import java.math.BigDecimal;

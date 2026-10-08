@@ -1,17 +1,23 @@
 package com.limoz.fleet.booking;
 
+import com.limoz.fleet.booking.domain.Booking;
+import com.limoz.fleet.booking.domain.BookingSource;
+import com.limoz.fleet.booking.domain.PricingType;
+import com.limoz.fleet.booking.domain.ServiceType;
+import com.limoz.fleet.booking.service.BookingService;
+
 import com.limoz.fleet.booking.dto.BookingLineRequest;
 import com.limoz.fleet.booking.dto.BookingRequest;
 import com.limoz.fleet.booking.dto.BookingResponse;
-import com.limoz.fleet.customer.CustomerService;
-import com.limoz.fleet.customer.CustomerType;
+import com.limoz.fleet.customer.service.CustomerService;
+import com.limoz.fleet.customer.domain.CustomerType;
 import com.limoz.fleet.customer.dto.CustomerRequest;
 import com.limoz.fleet.customer.dto.CustomerResponse;
-import com.limoz.fleet.document.DocumentService;
-import com.limoz.fleet.document.DocumentTypeRepository;
+import com.limoz.fleet.document.service.DocumentService;
+import com.limoz.fleet.document.repository.DocumentTypeRepository;
 import com.limoz.fleet.document.dto.DocumentRequest;
 import com.limoz.fleet.support.TestData;
-import com.limoz.fleet.vehicle.VehicleCategoryRepository;
+import com.limoz.fleet.vehicle.repository.VehicleCategoryRepository;
 import com.limoz.fleet.vehicle.dto.VehicleResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;

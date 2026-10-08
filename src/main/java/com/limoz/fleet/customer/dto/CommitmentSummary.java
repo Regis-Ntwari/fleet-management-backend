@@ -1,6 +1,6 @@
 package com.limoz.fleet.customer.dto;
 
-import com.limoz.fleet.customer.CommitmentStatus;
+import com.limoz.fleet.customer.domain.CommitmentStatus;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

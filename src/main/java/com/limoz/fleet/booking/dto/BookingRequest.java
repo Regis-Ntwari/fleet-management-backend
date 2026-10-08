@@ -1,7 +1,7 @@
 package com.limoz.fleet.booking.dto;
 
-import com.limoz.fleet.booking.BookingSource;
-import com.limoz.fleet.booking.ServiceType;
+import com.limoz.fleet.booking.domain.BookingSource;
+import com.limoz.fleet.booking.domain.ServiceType;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Min;

@@ -1,5 +1,9 @@
 package com.limoz.fleet.incident;
 
+import com.limoz.fleet.incident.domain.Incident;
+import com.limoz.fleet.incident.domain.IncidentSeverity;
+import com.limoz.fleet.incident.domain.IncidentType;
+
 import com.limoz.fleet.incident.dto.IncidentNoteRequest;
 import com.limoz.fleet.incident.dto.IncidentRequest;
 import com.limoz.fleet.incident.dto.IncidentResolveRequest;

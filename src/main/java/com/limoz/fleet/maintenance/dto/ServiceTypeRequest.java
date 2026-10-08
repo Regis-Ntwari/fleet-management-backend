@@ -1,6 +1,6 @@
 package com.limoz.fleet.maintenance.dto;
 
-import com.limoz.fleet.maintenance.ServiceCategory;
+import com.limoz.fleet.maintenance.domain.ServiceCategory;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;

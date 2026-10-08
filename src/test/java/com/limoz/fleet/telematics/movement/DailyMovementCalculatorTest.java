@@ -1,5 +1,12 @@
 package com.limoz.fleet.telematics.movement;
 
+import com.limoz.fleet.telematics.movement.domain.DailyMovementCalculator;
+import com.limoz.fleet.telematics.movement.domain.MovementFlag;
+import com.limoz.fleet.telematics.movement.domain.MovementResult;
+import com.limoz.fleet.telematics.movement.domain.MovementSample;
+import com.limoz.fleet.telematics.movement.domain.MovementThresholds;
+import com.limoz.fleet.telematics.movement.domain.TripInterval;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

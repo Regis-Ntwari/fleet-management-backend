@@ -1,5 +1,9 @@
 package com.limoz.fleet.finance;
 
+import com.limoz.fleet.finance.domain.PaymentDirection;
+import com.limoz.fleet.finance.domain.PaymentMethod;
+import com.limoz.fleet.finance.domain.PaymentTerms;
+
 import com.limoz.fleet.customer.CustomerTestData;
 import com.limoz.fleet.customer.dto.CustomerResponse;
 import com.limoz.fleet.finance.dto.InvoiceFromBookingRequest;

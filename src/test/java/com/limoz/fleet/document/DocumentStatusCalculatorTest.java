@@ -1,5 +1,8 @@
 package com.limoz.fleet.document;
 
+import com.limoz.fleet.document.domain.DocumentStatus;
+import com.limoz.fleet.document.domain.DocumentStatusCalculator;
+
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;

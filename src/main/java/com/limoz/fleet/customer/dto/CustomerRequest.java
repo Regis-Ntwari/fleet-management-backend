@@ -1,6 +1,6 @@
 package com.limoz.fleet.customer.dto;
 
-import com.limoz.fleet.customer.CustomerType;
+import com.limoz.fleet.customer.domain.CustomerType;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

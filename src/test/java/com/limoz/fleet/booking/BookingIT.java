@@ -1,5 +1,11 @@
 package com.limoz.fleet.booking;
 
+import com.limoz.fleet.booking.domain.Booking;
+import com.limoz.fleet.booking.domain.BookingSource;
+import com.limoz.fleet.booking.domain.PricingType;
+import com.limoz.fleet.booking.domain.ServiceType;
+import com.limoz.fleet.booking.domain.Shift;
+
 import com.limoz.fleet.booking.dto.AssignSlotRequest;
 import com.limoz.fleet.booking.dto.BookingCancelRequest;
 import com.limoz.fleet.booking.dto.BookingRequest;

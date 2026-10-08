@@ -1,7 +1,7 @@
 package com.limoz.fleet.reporting;
 
 import com.limoz.fleet.booking.BookingTestData;
-import com.limoz.fleet.booking.DispatchService;
+import com.limoz.fleet.booking.service.DispatchService;
 import com.limoz.fleet.booking.dto.AssignSlotRequest;
 import com.limoz.fleet.booking.dto.BookingResponse;
 import com.limoz.fleet.booking.dto.DepartRequest;

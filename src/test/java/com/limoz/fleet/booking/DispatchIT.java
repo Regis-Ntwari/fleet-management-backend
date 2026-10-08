@@ -1,5 +1,8 @@
 package com.limoz.fleet.booking;
 
+import com.limoz.fleet.booking.domain.PricingType;
+import com.limoz.fleet.booking.domain.Shift;
+
 import com.limoz.fleet.booking.dto.AssignSlotRequest;
 import com.limoz.fleet.booking.dto.BookingResponse;
 import com.limoz.fleet.booking.dto.DepartRequest;
@@ -8,8 +11,8 @@ import com.limoz.fleet.customer.dto.CustomerResponse;
 import com.limoz.fleet.driver.dto.DriverResponse;
 import com.limoz.fleet.security.Roles;
 import com.limoz.fleet.support.AbstractIntegrationTest;
-import com.limoz.fleet.vehicle.VehicleService;
-import com.limoz.fleet.vehicle.VehicleStatus;
+import com.limoz.fleet.vehicle.service.VehicleService;
+import com.limoz.fleet.vehicle.domain.VehicleStatus;
 import com.limoz.fleet.vehicle.dto.VehicleResponse;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

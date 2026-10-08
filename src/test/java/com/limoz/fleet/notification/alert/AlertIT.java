@@ -1,12 +1,15 @@
 package com.limoz.fleet.notification.alert;
 
-import com.limoz.fleet.document.DocumentTypeRepository;
+import com.limoz.fleet.notification.alert.domain.Alert;
+import com.limoz.fleet.notification.alert.domain.AlertType;
+
+import com.limoz.fleet.document.repository.DocumentTypeRepository;
 import com.limoz.fleet.document.dto.DocumentRequest;
 import com.limoz.fleet.notification.alert.dto.AlertNoteRequest;
 import com.limoz.fleet.security.Roles;
 import com.limoz.fleet.support.AbstractIntegrationTest;
 import com.limoz.fleet.support.TestData;
-import com.limoz.fleet.vehicle.VehicleStatus;
+import com.limoz.fleet.vehicle.domain.VehicleStatus;
 import com.limoz.fleet.vehicle.dto.VehicleResponse;
 import com.limoz.fleet.vehicle.dto.VehicleStatusChangeRequest;
 import org.junit.jupiter.api.DisplayName;

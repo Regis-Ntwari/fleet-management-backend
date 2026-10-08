@@ -1,7 +1,7 @@
 package com.limoz.fleet.maintenance.dto;
 
-import com.limoz.fleet.maintenance.CommentType;
-import com.limoz.fleet.maintenance.MaintenanceRecordStatus;
+import com.limoz.fleet.maintenance.domain.CommentType;
+import com.limoz.fleet.maintenance.domain.MaintenanceRecordStatus;
 
 import java.time.Instant;
 

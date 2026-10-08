@@ -1,6 +1,6 @@
 package com.limoz.fleet.booking.dto;
 
-import com.limoz.fleet.vehicle.VehicleStatus;
+import com.limoz.fleet.vehicle.domain.VehicleStatus;
 import com.limoz.fleet.vehicle.dto.VehicleSummary;
 
 import java.time.LocalDate;

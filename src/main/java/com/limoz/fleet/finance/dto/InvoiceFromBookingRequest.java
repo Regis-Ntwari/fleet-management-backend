@@ -1,6 +1,6 @@
 package com.limoz.fleet.finance.dto;
 
-import com.limoz.fleet.finance.PaymentTerms;
+import com.limoz.fleet.finance.domain.PaymentTerms;
 import jakarta.validation.constraints.DecimalMax;
 import jakarta.validation.constraints.DecimalMin;
 

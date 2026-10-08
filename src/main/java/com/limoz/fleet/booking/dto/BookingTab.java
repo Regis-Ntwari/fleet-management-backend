@@ -1,6 +1,6 @@
 package com.limoz.fleet.booking.dto;
 
-import com.limoz.fleet.booking.BookingStatus;
+import com.limoz.fleet.booking.domain.BookingStatus;
 
 import java.util.List;
 

@@ -1,6 +1,6 @@
 package com.limoz.fleet.finance.dto;
 
-import com.limoz.fleet.finance.ExpenseStatus;
+import com.limoz.fleet.finance.domain.ExpenseStatus;
 
 import java.time.LocalDate;
 import java.util.List;

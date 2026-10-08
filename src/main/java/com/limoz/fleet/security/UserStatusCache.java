@@ -1,8 +1,8 @@
 package com.limoz.fleet.security;
 
 import com.limoz.fleet.config.CacheConfig;
-import com.limoz.fleet.user.User;
-import com.limoz.fleet.user.UserRepository;
+import com.limoz.fleet.user.domain.User;
+import com.limoz.fleet.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;

@@ -1,7 +1,7 @@
 package com.limoz.fleet.maintenance.dto;
 
-import com.limoz.fleet.maintenance.MaintenanceType;
-import com.limoz.fleet.maintenance.Priority;
+import com.limoz.fleet.maintenance.domain.MaintenanceType;
+import com.limoz.fleet.maintenance.domain.Priority;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.Min;

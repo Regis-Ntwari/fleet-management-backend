@@ -1,6 +1,6 @@
 package com.limoz.fleet.maintenance.dto;
 
-import com.limoz.fleet.maintenance.ScheduleStatus;
+import com.limoz.fleet.maintenance.domain.ScheduleStatus;
 import com.limoz.fleet.vehicle.dto.VehicleSummary;
 
 import java.time.Instant;

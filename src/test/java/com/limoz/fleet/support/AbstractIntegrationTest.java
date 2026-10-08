@@ -1,6 +1,6 @@
 package com.limoz.fleet.support;
 
-import com.limoz.fleet.auth.AuthService;
+import com.limoz.fleet.auth.service.AuthService;
 import com.limoz.fleet.auth.dto.AuthResponse;
 import com.limoz.fleet.auth.dto.LoginRequest;
 import org.junit.jupiter.api.BeforeEach;
@@ -59,10 +59,10 @@ public abstract class AbstractIntegrationTest {
     }
 
     @Autowired
-    protected com.limoz.fleet.user.UserService userService;
+    protected com.limoz.fleet.user.service.UserService userService;
 
     @Autowired
-    protected com.limoz.fleet.user.UserRepository userRepository;
+    protected com.limoz.fleet.user.repository.UserRepository userRepository;
 
     protected String toJson(Object value) {
         return json.writeValueAsString(value);

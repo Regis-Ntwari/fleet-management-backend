@@ -1,6 +1,6 @@
 package com.limoz.fleet.booking.dto;
 
-import com.limoz.fleet.booking.PricingType;
+import com.limoz.fleet.booking.domain.PricingType;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

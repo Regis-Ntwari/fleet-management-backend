@@ -1,6 +1,6 @@
 package com.limoz.fleet.maintenance.inventory.dto;
 
-import com.limoz.fleet.maintenance.inventory.StockMovementType;
+import com.limoz.fleet.maintenance.inventory.domain.StockMovementType;
 
 import java.time.LocalDate;
 

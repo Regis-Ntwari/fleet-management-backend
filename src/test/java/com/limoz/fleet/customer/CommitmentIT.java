@@ -1,5 +1,7 @@
 package com.limoz.fleet.customer;
 
+import com.limoz.fleet.customer.domain.Commitment;
+
 import com.limoz.fleet.customer.dto.CommitmentRequest;
 import com.limoz.fleet.customer.dto.CustomerResponse;
 import com.limoz.fleet.security.Roles;

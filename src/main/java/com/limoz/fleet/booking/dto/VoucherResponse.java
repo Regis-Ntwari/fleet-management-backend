@@ -1,6 +1,6 @@
 package com.limoz.fleet.booking.dto;
 
-import com.limoz.fleet.booking.VoucherStatus;
+import com.limoz.fleet.booking.domain.VoucherStatus;
 import com.limoz.fleet.customer.dto.CustomerSummary;
 import com.limoz.fleet.driver.dto.DriverSummary;
 import com.limoz.fleet.vehicle.dto.VehicleSummary;
