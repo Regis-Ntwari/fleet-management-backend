@@ -218,9 +218,9 @@ public class OperationsSeedStep implements SeedStep {
         for (int dayOffset = 45; dayOffset >= -3 && created < 60; dayOffset -= 2) {
             LocalDate day = today.minusDays(dayOffset);
             for (int k = 0; k < 2; k++) {
-                Long vehicleId = vehicles.get((dayOffset + k * 7) % vehicles.size());
-                Long driverId = drivers.get((dayOffset + k * 3) % drivers.size());
-                String[] route = routes[(dayOffset + k) % routes.length];
+                Long vehicleId = vehicles.get(Math.floorMod(dayOffset + k * 7, vehicles.size()));
+                Long driverId = drivers.get(Math.floorMod(dayOffset + k * 3, drivers.size()));
+                String[] route = routes[Math.floorMod(dayOffset + k, routes.length)];
                 Instant startAt = ctx.at(day, 8 + k * 4, 15);
                 try {
                     TripResponse trip = tripService.create(new TripRequest(vehicleId, driverId, ctx.pick(ctx.ids("customer")), route[0], route[1], null,
