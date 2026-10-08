@@ -266,9 +266,11 @@ errors as `ApiError`. The live, complete contract is in Swagger UI (`/swagger-ui
 
 1. Platform: security, users/roles, settings, audit, storage, migrations, tests, CI  (done)
 2. Master data: categories, vehicles, odometer journal, drivers, assignments, documents, customers  (done)
-3. Operations: bookings, dispatch, vouchers, trips
-4. Workshop & fuel: maintenance lifecycle, schedules, spare parts, fuel transactions
-5. Compliance & finance: incidents, fines, commitments, LPOs, invoices, payments, expenses
-6. Visibility: telematics ingestion, daily movement, notifications, alert centre
-7. Management: dashboard aggregates, reports & exports, global search, imports, seed data
-8. Frontend (React) against the OpenAPI contract; Docker compose with the frontend profile
+3. Operations: bookings, dispatch, vouchers, trips  (done)
+4. Workshop & fuel: maintenance lifecycle, schedules, spare parts, fuel transactions  (done)
+5. Compliance & finance: incidents, fines, commitments, LPOs, invoices, payments, expenses  (done)
+6. Visibility: telematics ingestion, daily movement, notifications, alert centre  (done)
+7. Management: dashboard aggregates, reports & exports, global search, imports, seed data  (done)
+8. Frontend (React) against the OpenAPI contract (`docs/openapi.json`, `/v3/api-docs`); Docker compose `--profile frontend`
+9. Real integrations when credentials exist: `WialonTelematicsProvider` (docs/telematics-integration.md),
+   Email/SMS/WhatsApp `NotificationChannel`s, S3 `FileStorage`, accounting export
