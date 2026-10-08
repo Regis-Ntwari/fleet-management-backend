@@ -31,6 +31,7 @@ public class DevDataSeeder implements ApplicationRunner {
     private final AppProperties properties;
     private final VehicleRepository vehicleRepository;
     private final List<SeedStep> steps;
+    private final SeedSecurity seedSecurity;
     private final Clock clock;
     private final ZoneId zone;
 
@@ -45,11 +46,11 @@ public class DevDataSeeder implements ApplicationRunner {
         }
         long start = System.currentTimeMillis();
         SeedContext context = new SeedContext(clock, zone);
-        steps.stream().sorted(Comparator.comparingInt(SeedStep::order)).forEach(step -> {
+        seedSecurity.runAsAdministrator(() -> steps.stream().sorted(Comparator.comparingInt(SeedStep::order)).forEach(step -> {
             long t = System.currentTimeMillis();
             step.seed(context);
             log.info("Seed step '{}' done in {} ms", step.name(), System.currentTimeMillis() - t);
-        });
+        }));
         log.info("Development seed data loaded in {} ms. Login accounts use password '{}'.", System.currentTimeMillis() - start, SeedContext.PASSWORD);
     }
 }

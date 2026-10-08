@@ -3,7 +3,9 @@ package com.limoz.fleet.importer;
 import com.limoz.fleet.support.AbstractIntegrationTest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mock.web.MockMultipartFile;
+import com.limoz.fleet.support.TestData;
 
 import java.nio.charset.StandardCharsets;
 
@@ -13,6 +15,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 class ImportIT extends AbstractIntegrationTest {
+
+    @Autowired
+    TestData data;
 
     @Test
     @DisplayName("vehicle CSV import reports imported, duplicate and rejected rows without silently accepting bad data")
@@ -98,6 +103,30 @@ class ImportIT extends AbstractIntegrationTest {
                 .andExpect(jsonPath("$.content[0].modelYear").value(2023))
                 .andExpect(jsonPath("$.content[0].odometerKm").value(45200))
                 .andExpect(jsonPath("$.content[0].purchaseDate").value("2023-02-10"));
+    }
+
+    @Test
+    @DisplayName("fuel-card statement import computes transactions and rejects unknown plates and duplicates")
+    void fuelImport() throws Exception {
+        var vehicle = data.vehicle();
+        String csv = """
+                plate_number,date,time,station,litres,price_per_litre,odometer_km,receipt_number
+                %s,2026-06-01,08:30,SP Nyabugogo,60,1580,%d,R-1
+                %s,2026-06-03,09:00,Engen Remera,55,1580,%d,R-2
+                %s,2026-06-03,09:00,Engen Remera,55,1580,%d,R-2
+                RAD 000 X,2026-06-04,10:00,SP Kimironko,40,1580,1000,R-3
+                """.formatted(vehicle.plateNumber(), vehicle.odometerKm() + 100, vehicle.plateNumber(), vehicle.odometerKm() + 500, vehicle.plateNumber(), vehicle.odometerKm() + 500);
+        MockMultipartFile file = new MockMultipartFile("file", "fuel.csv", "text/csv", csv.getBytes(StandardCharsets.UTF_8));
+        mockMvc.perform(multipart("/api/v1/imports/fuel").file(file).header("Authorization", adminToken))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.imported").value(2))
+                .andExpect(jsonPath("$.duplicates").value(1))
+                .andExpect(jsonPath("$.rejected").value(2))
+                .andExpect(jsonPath("$.errors[1].reason").value("Unknown vehicle plate 'RAD 000 X'"));
+        mockMvc.perform(get("/api/v1/vehicles/" + vehicle.id() + "/fuel").header("Authorization", adminToken))
+                .andExpect(jsonPath("$.totalElements").value(2))
+                .andExpect(jsonPath("$.content[0].distanceSinceLastKm").value(400.0))
+                .andExpect(jsonPath("$.content[0].totalAmount").value(86900.0));
     }
 
     @Test

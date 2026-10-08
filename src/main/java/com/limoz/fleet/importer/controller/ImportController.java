@@ -1,6 +1,7 @@
 package com.limoz.fleet.importer.controller;
 
 import com.limoz.fleet.importer.service.DriverImporter;
+import com.limoz.fleet.importer.service.FuelImporter;
 import com.limoz.fleet.importer.service.VehicleImporter;
 
 import com.limoz.fleet.audit.domain.AuditAction;
@@ -26,12 +27,13 @@ public class ImportController {
 
     private final VehicleImporter vehicleImporter;
     private final DriverImporter driverImporter;
+    private final FuelImporter fuelImporter;
     private final AuditService auditService;
 
     @GetMapping("/templates")
     @Operation(summary = "Expected column names per import type")
     public Map<String, List<String>> templates() {
-        return Map.of("vehicles", VehicleImporter.COLUMNS, "drivers", DriverImporter.COLUMNS);
+        return Map.of("vehicles", VehicleImporter.COLUMNS, "drivers", DriverImporter.COLUMNS, "fuel", FuelImporter.COLUMNS);
     }
 
     @PostMapping(value = "/vehicles", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
@@ -41,6 +43,16 @@ public class ImportController {
         ImportResult result = vehicleImporter.importFile(file, updateExisting);
         auditService.record(AuditAction.IMPORT, "Vehicle", null, file.getOriginalFilename(), null, result,
                 "Vehicle import: " + result.imported() + " imported, " + result.updated() + " updated, " + result.rejected() + " rejected");
+        return result;
+    }
+
+    @PostMapping(value = "/fuel", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    @PreAuthorize("hasAuthority('IMPORT_DATA') and hasAuthority('FUEL_MANAGE')")
+    @Operation(summary = "Import fuel transactions (CSV or Excel, e.g. a fuel-card statement)")
+    public ImportResult fuel(@RequestPart("file") MultipartFile file) {
+        ImportResult result = fuelImporter.importFile(file);
+        auditService.record(AuditAction.IMPORT, "FuelTransaction", null, file.getOriginalFilename(), null, result,
+                "Fuel import: " + result.imported() + " imported, " + result.rejected() + " rejected");
         return result;
     }
 
