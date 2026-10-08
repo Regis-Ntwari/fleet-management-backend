@@ -66,6 +66,41 @@ class ImportIT extends AbstractIntegrationTest {
     }
 
     @Test
+    @DisplayName("Excel workbooks are imported with numeric and date cells handled")
+    void excelImport() throws Exception {
+        java.io.ByteArrayOutputStream out = new java.io.ByteArrayOutputStream();
+        try (var wb = new org.apache.poi.xssf.usermodel.XSSFWorkbook()) {
+            var sheet = wb.createSheet("Vehicles");
+            String[] headers = {"Plate Number", "Make", "Model", "Category", "Year", "Odometer Km", "Purchase Date"};
+            var h = sheet.createRow(0);
+            for (int i = 0; i < headers.length; i++) h.createCell(i).setCellValue(headers[i]);
+            var r = sheet.createRow(1);
+            r.createCell(0).setCellValue("RAD 701 X");
+            r.createCell(1).setCellValue("Yutong");
+            r.createCell(2).setCellValue("ZK6122");
+            r.createCell(3).setCellValue("COACH");
+            r.createCell(4).setCellValue(2023);
+            r.createCell(5).setCellValue(45200);
+            var dateCell = r.createCell(6);
+            dateCell.setCellValue(java.time.LocalDate.of(2023, 2, 10));
+            var style = wb.createCellStyle();
+            style.setDataFormat(wb.getCreationHelper().createDataFormat().getFormat("yyyy-mm-dd"));
+            dateCell.setCellStyle(style);
+            wb.write(out);
+        }
+        MockMultipartFile file = new MockMultipartFile("file", "vehicles.xlsx",
+                "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", out.toByteArray());
+        mockMvc.perform(multipart("/api/v1/imports/vehicles").file(file).header("Authorization", adminToken))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.imported").value(1))
+                .andExpect(jsonPath("$.rejected").value(0));
+        mockMvc.perform(get("/api/v1/vehicles").header("Authorization", adminToken).param("q", "RAD 701 X"))
+                .andExpect(jsonPath("$.content[0].modelYear").value(2023))
+                .andExpect(jsonPath("$.content[0].odometerKm").value(45200))
+                .andExpect(jsonPath("$.content[0].purchaseDate").value("2023-02-10"));
+    }
+
+    @Test
     @DisplayName("import endpoints require IMPORT_DATA")
     void requiresPermission() throws Exception {
         MockMultipartFile file = new MockMultipartFile("file", "v.csv", "text/csv", "plate_number\n".getBytes());

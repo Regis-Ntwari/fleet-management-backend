@@ -67,6 +67,30 @@ class AuthenticationIT extends AbstractIntegrationTest {
     }
 
     @Test
+    @DisplayName("repeated failed logins lock the account and throttle the client")
+    void lockoutAfterRepeatedFailures() throws Exception {
+        String email = "locked.user@test.limoz.rw";
+        userService.create(new com.limoz.fleet.user.dto.CreateUserRequest("Locked", "User", email, null, null,
+                "Correct@12345", java.util.Set.of("VIEWER"), null, false));
+        for (int i = 0; i < 5; i++) {
+            mockMvc.perform(post("/api/v1/auth/login").contentType(MediaType.APPLICATION_JSON)
+                            .content(toJson(new LoginRequest(email, "wrong-" + i))))
+                    .andExpect(status().isUnauthorized());
+        }
+        // 5 failures (settings security.max_failed_logins) -> account locked even with the right password
+        mockMvc.perform(post("/api/v1/auth/login").contentType(MediaType.APPLICATION_JSON)
+                        .content(toJson(new LoginRequest(email, "Correct@12345"))))
+                .andExpect(status().isUnauthorized())
+                .andExpect(jsonPath("$.code").value("ACCOUNT_LOCKED"));
+        // administrator reset clears the lock
+        Long id = userRepository.findByEmailIgnoreCase(email).orElseThrow().getId();
+        userService.resetPassword(id, new com.limoz.fleet.user.dto.ResetPasswordRequest("Correct@12345", false));
+        mockMvc.perform(post("/api/v1/auth/login").contentType(MediaType.APPLICATION_JSON)
+                        .content(toJson(new LoginRequest(email, "Correct@12345"))))
+                .andExpect(status().isOk());
+    }
+
+    @Test
     @DisplayName("logout revokes the access token immediately")
     void logoutRevokesAccessToken() throws Exception {
         var session = login(ADMIN_EMAIL, ADMIN_PASSWORD);
