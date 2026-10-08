@@ -1,0 +1,23 @@
+spring:
+  flyway:
+    locations: classpath:db/migration
+  task:
+    scheduling:
+      enabled: false
+fleet:
+  security:
+    jwt:
+      secret: test-secret-test-secret-test-secret-test-secret-0123456789
+      access-token-ttl: PT15M
+  bootstrap:
+    admin-email: admin@limoz.rw
+    admin-password: Admin@12345
+  seed:
+    enabled: false
+  storage:
+    local:
+      base-path: ${java.io.tmpdir}/limoz-fleet-test-uploads
+logging:
+  level:
+    com.limoz.fleet: INFO
+    org.flywaydb: WARN

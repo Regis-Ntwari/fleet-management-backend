@@ -1,0 +1,15 @@
+spring:
+  jpa:
+    show-sql: false
+springdoc:
+  api-docs:
+    enabled: ${SWAGGER_ENABLED:false}
+  swagger-ui:
+    enabled: ${SWAGGER_ENABLED:false}
+management:
+  endpoint:
+    health:
+      show-details: never
+logging:
+  level:
+    com.limoz.fleet: INFO

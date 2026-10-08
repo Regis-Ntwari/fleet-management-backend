@@ -1,0 +1,128 @@
+spring:
+  application:
+    name: limoz-fleet-operations
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:dev}
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:limoz_fleet}
+    username: ${DB_USERNAME:limoz}
+    password: ${DB_PASSWORD:limoz}
+    hikari:
+      maximum-pool-size: ${DB_POOL_SIZE:10}
+      minimum-idle: 2
+      connection-timeout: 30000
+      pool-name: fleet-pool
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+          batch_size: 50
+        order_inserts: true
+        order_updates: true
+        query:
+          in_clause_parameter_padding: true
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    baseline-on-migrate: false
+    validate-on-migrate: true
+  jackson:
+    default-property-inclusion: non_null
+  servlet:
+    multipart:
+      max-file-size: ${MAX_UPLOAD_SIZE:15MB}
+      max-request-size: ${MAX_UPLOAD_SIZE:15MB}
+  cache:
+    type: caffeine
+  task:
+    scheduling:
+      pool:
+        size: 2
+    execution:
+      pool:
+        core-size: 2
+        max-size: 8
+        queue-capacity: 200
+  threads:
+    virtual:
+      enabled: true
+
+server:
+  port: ${SERVER_PORT:8080}
+  shutdown: graceful
+  error:
+    include-message: never
+    include-stacktrace: never
+  compression:
+    enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus,caches
+  endpoint:
+    health:
+      show-details: when_authorized
+      probes:
+        enabled: true
+  info:
+    build:
+      enabled: true
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: alpha
+    tags-sorter: alpha
+    display-request-duration: true
+  default-produces-media-type: application/json
+
+logging:
+  level:
+    root: INFO
+    com.limoz.fleet: INFO
+    org.hibernate.SQL: WARN
+    org.springframework.security: WARN
+
+fleet:
+  timezone: ${FLEET_TIMEZONE:Africa/Kigali}
+  currency: ${FLEET_CURRENCY:RWF}
+  cors:
+    allowed-origins: ${CORS_ALLOWED_ORIGINS:http://localhost:5173,http://localhost:3000}
+  security:
+    jwt:
+      # Minimum 32 bytes. MUST be overridden in every non-dev environment.
+      secret: ${JWT_SECRET:}
+      access-token-ttl: ${JWT_ACCESS_TTL:PT15M}
+      refresh-token-ttl: ${JWT_REFRESH_TTL:P14D}
+      issuer: limoz-fleet
+    login:
+      max-attempts-per-window: ${LOGIN_MAX_ATTEMPTS:10}
+      window: ${LOGIN_WINDOW:PT15M}
+  storage:
+    provider: ${STORAGE_PROVIDER:local}
+    local:
+      base-path: ${STORAGE_LOCAL_PATH:./data/uploads}
+  bootstrap:
+    admin-email: ${ADMIN_EMAIL:admin@limoz.rw}
+    admin-password: ${ADMIN_PASSWORD:}
+    admin-first-name: System
+    admin-last-name: Administrator
+  seed:
+    enabled: ${SEED_DATA:false}
+  telematics:
+    provider: ${TELEMATICS_PROVIDER:none}
+    sync-cron: ${TELEMATICS_SYNC_CRON:0 */5 * * * *}
+  jobs:
+    document-status-cron: "0 15 0 * * *"
+    maintenance-due-cron: "0 30 0 * * *"
+    alert-scan-cron: "0 */15 * * * *"
+    daily-movement-cron: "0 5 0 * * *"
+    token-cleanup-cron: "0 0 3 * * *"
