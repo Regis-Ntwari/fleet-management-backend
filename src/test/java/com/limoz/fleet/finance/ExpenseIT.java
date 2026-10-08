@@ -1,5 +1,8 @@
 package com.limoz.fleet.finance;
 
+import com.limoz.fleet.finance.domain.PaymentMethod;
+import com.limoz.fleet.finance.repository.ExpenseCategoryRepository;
+
 import com.limoz.fleet.finance.dto.ExpenseRejectRequest;
 import com.limoz.fleet.finance.dto.ExpenseRequest;
 import com.limoz.fleet.finance.dto.SettlementRequest;

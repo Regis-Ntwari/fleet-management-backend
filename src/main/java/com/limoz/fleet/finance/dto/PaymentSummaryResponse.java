@@ -1,6 +1,6 @@
 package com.limoz.fleet.finance.dto;
 
-import com.limoz.fleet.finance.PaymentMethod;
+import com.limoz.fleet.finance.domain.PaymentMethod;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

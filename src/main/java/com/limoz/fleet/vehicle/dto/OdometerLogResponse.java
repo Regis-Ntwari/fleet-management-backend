@@ -1,6 +1,6 @@
 package com.limoz.fleet.vehicle.dto;
 
-import com.limoz.fleet.vehicle.OdometerSource;
+import com.limoz.fleet.vehicle.domain.OdometerSource;
 
 import java.time.Instant;
 

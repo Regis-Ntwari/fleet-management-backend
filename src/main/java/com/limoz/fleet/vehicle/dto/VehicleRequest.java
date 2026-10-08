@@ -1,8 +1,8 @@
 package com.limoz.fleet.vehicle.dto;
 
-import com.limoz.fleet.vehicle.FuelType;
-import com.limoz.fleet.vehicle.OwnershipType;
-import com.limoz.fleet.vehicle.Transmission;
+import com.limoz.fleet.vehicle.domain.FuelType;
+import com.limoz.fleet.vehicle.domain.OwnershipType;
+import com.limoz.fleet.vehicle.domain.Transmission;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;

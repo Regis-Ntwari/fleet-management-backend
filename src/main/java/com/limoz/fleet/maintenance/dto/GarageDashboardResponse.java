@@ -1,8 +1,8 @@
 package com.limoz.fleet.maintenance.dto;
 
-import com.limoz.fleet.maintenance.GarageDayBand;
-import com.limoz.fleet.maintenance.MaintenanceRecordStatus;
-import com.limoz.fleet.maintenance.Priority;
+import com.limoz.fleet.maintenance.domain.GarageDayBand;
+import com.limoz.fleet.maintenance.domain.MaintenanceRecordStatus;
+import com.limoz.fleet.maintenance.domain.Priority;
 
 import java.math.BigDecimal;
 import java.time.Instant;

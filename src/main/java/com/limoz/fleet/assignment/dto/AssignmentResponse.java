@@ -1,6 +1,6 @@
 package com.limoz.fleet.assignment.dto;
 
-import com.limoz.fleet.assignment.AssignmentStatus;
+import com.limoz.fleet.assignment.domain.AssignmentStatus;
 import com.limoz.fleet.driver.dto.DriverSummary;
 import com.limoz.fleet.vehicle.dto.VehicleSummary;
 

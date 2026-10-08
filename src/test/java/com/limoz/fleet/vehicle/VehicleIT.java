@@ -1,5 +1,7 @@
 package com.limoz.fleet.vehicle;
 
+import com.limoz.fleet.vehicle.domain.Vehicle;
+
 import com.limoz.fleet.security.Roles;
 import com.limoz.fleet.support.AbstractIntegrationTest;
 import com.limoz.fleet.support.TestData;

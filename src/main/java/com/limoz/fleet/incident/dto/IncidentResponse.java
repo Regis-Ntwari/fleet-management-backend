@@ -1,9 +1,9 @@
 package com.limoz.fleet.incident.dto;
 
 import com.limoz.fleet.driver.dto.DriverSummary;
-import com.limoz.fleet.incident.IncidentSeverity;
-import com.limoz.fleet.incident.IncidentStatus;
-import com.limoz.fleet.incident.IncidentType;
+import com.limoz.fleet.incident.domain.IncidentSeverity;
+import com.limoz.fleet.incident.domain.IncidentStatus;
+import com.limoz.fleet.incident.domain.IncidentType;
 import com.limoz.fleet.vehicle.dto.VehicleSummary;
 
 import java.math.BigDecimal;

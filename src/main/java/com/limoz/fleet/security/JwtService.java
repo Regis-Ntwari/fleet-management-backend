@@ -1,7 +1,7 @@
 package com.limoz.fleet.security;
 
 import com.limoz.fleet.config.AppProperties;
-import com.limoz.fleet.user.User;
+import com.limoz.fleet.user.domain.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.oauth2.jose.jws.MacAlgorithm;
 import org.springframework.security.oauth2.jwt.JwsHeader;

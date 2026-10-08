@@ -1,6 +1,6 @@
 package com.limoz.fleet.dashboard;
 
-import com.limoz.fleet.assignment.AssignmentService;
+import com.limoz.fleet.assignment.service.AssignmentService;
 import com.limoz.fleet.assignment.dto.AssignmentRequest;
 import com.limoz.fleet.security.Roles;
 import com.limoz.fleet.support.AbstractIntegrationTest;

@@ -2,7 +2,7 @@ package com.limoz.fleet.trip.dto;
 
 import com.limoz.fleet.customer.dto.CustomerSummary;
 import com.limoz.fleet.driver.dto.DriverSummary;
-import com.limoz.fleet.trip.TripStatus;
+import com.limoz.fleet.trip.domain.TripStatus;
 import com.limoz.fleet.vehicle.dto.VehicleSummary;
 
 import java.math.BigDecimal;

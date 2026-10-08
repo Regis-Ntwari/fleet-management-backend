@@ -1,6 +1,6 @@
 package com.limoz.fleet.maintenance.dto;
 
-import com.limoz.fleet.maintenance.MaintenanceType;
+import com.limoz.fleet.maintenance.domain.MaintenanceType;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

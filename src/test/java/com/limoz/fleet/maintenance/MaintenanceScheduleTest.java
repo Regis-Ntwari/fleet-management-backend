@@ -1,5 +1,11 @@
 package com.limoz.fleet.maintenance;
 
+import com.limoz.fleet.maintenance.domain.GarageDayBand;
+import com.limoz.fleet.maintenance.domain.MaintenanceRecordStatus;
+import com.limoz.fleet.maintenance.domain.PaymentStatus;
+import com.limoz.fleet.maintenance.domain.ScheduleCalculator;
+import com.limoz.fleet.maintenance.domain.ScheduleStatus;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

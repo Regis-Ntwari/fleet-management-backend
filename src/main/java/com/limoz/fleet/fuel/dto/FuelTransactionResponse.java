@@ -1,8 +1,8 @@
 package com.limoz.fleet.fuel.dto;
 
 import com.limoz.fleet.driver.dto.DriverSummary;
-import com.limoz.fleet.fuel.FuelPaymentMethod;
-import com.limoz.fleet.vehicle.FuelType;
+import com.limoz.fleet.fuel.domain.FuelPaymentMethod;
+import com.limoz.fleet.vehicle.domain.FuelType;
 import com.limoz.fleet.vehicle.dto.VehicleSummary;
 
 import java.math.BigDecimal;

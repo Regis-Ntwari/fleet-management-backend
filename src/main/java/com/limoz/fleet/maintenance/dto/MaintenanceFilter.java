@@ -1,10 +1,10 @@
 package com.limoz.fleet.maintenance.dto;
 
-import com.limoz.fleet.maintenance.MaintenanceRecordStatus;
-import com.limoz.fleet.maintenance.MaintenanceType;
-import com.limoz.fleet.maintenance.PaymentStatus;
-import com.limoz.fleet.maintenance.Priority;
-import com.limoz.fleet.maintenance.WorkshopType;
+import com.limoz.fleet.maintenance.domain.MaintenanceRecordStatus;
+import com.limoz.fleet.maintenance.domain.MaintenanceType;
+import com.limoz.fleet.maintenance.domain.PaymentStatus;
+import com.limoz.fleet.maintenance.domain.Priority;
+import com.limoz.fleet.maintenance.domain.WorkshopType;
 
 import java.time.LocalDate;
 import java.util.List;

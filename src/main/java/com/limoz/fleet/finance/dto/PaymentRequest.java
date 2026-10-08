@@ -1,7 +1,7 @@
 package com.limoz.fleet.finance.dto;
 
-import com.limoz.fleet.finance.PaymentDirection;
-import com.limoz.fleet.finance.PaymentMethod;
+import com.limoz.fleet.finance.domain.PaymentDirection;
+import com.limoz.fleet.finance.domain.PaymentMethod;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;

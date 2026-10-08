@@ -1,9 +1,9 @@
 package com.limoz.fleet.vehicle.dto;
 
-import com.limoz.fleet.vehicle.FuelType;
-import com.limoz.fleet.vehicle.MaintenanceStatus;
-import com.limoz.fleet.vehicle.OwnershipType;
-import com.limoz.fleet.vehicle.VehicleStatus;
+import com.limoz.fleet.vehicle.domain.FuelType;
+import com.limoz.fleet.vehicle.domain.MaintenanceStatus;
+import com.limoz.fleet.vehicle.domain.OwnershipType;
+import com.limoz.fleet.vehicle.domain.VehicleStatus;
 
 import java.util.List;
 

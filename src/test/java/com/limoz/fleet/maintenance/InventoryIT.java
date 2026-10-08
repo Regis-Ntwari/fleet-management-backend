@@ -1,6 +1,6 @@
 package com.limoz.fleet.maintenance;
 
-import com.limoz.fleet.maintenance.inventory.StockMovementType;
+import com.limoz.fleet.maintenance.inventory.domain.StockMovementType;
 import com.limoz.fleet.maintenance.inventory.dto.SparePartRequest;
 import com.limoz.fleet.maintenance.inventory.dto.StockMovementRequest;
 import com.limoz.fleet.security.Roles;

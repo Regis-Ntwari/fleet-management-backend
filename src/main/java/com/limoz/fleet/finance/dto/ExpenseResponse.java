@@ -1,7 +1,7 @@
 package com.limoz.fleet.finance.dto;
 
 import com.limoz.fleet.driver.dto.DriverSummary;
-import com.limoz.fleet.finance.ExpenseStatus;
+import com.limoz.fleet.finance.domain.ExpenseStatus;
 import com.limoz.fleet.vehicle.dto.VehicleSummary;
 
 import java.math.BigDecimal;

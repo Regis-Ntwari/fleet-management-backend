@@ -1,7 +1,7 @@
 package com.limoz.fleet.incident.dto;
 
-import com.limoz.fleet.incident.IncidentStatus;
-import com.limoz.fleet.incident.IncidentUpdateType;
+import com.limoz.fleet.incident.domain.IncidentStatus;
+import com.limoz.fleet.incident.domain.IncidentUpdateType;
 
 import java.time.Instant;
 

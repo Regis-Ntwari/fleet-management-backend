@@ -1,6 +1,9 @@
 package com.limoz.fleet.importer;
 
-import com.limoz.fleet.vehicle.FuelType;
+import com.limoz.fleet.importer.domain.ImportSupport;
+import com.limoz.fleet.importer.repository.TabularFileReader;
+
+import com.limoz.fleet.vehicle.domain.FuelType;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;

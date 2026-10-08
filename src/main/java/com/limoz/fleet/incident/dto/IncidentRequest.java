@@ -1,7 +1,7 @@
 package com.limoz.fleet.incident.dto;
 
-import com.limoz.fleet.incident.IncidentSeverity;
-import com.limoz.fleet.incident.IncidentType;
+import com.limoz.fleet.incident.domain.IncidentSeverity;
+import com.limoz.fleet.incident.domain.IncidentType;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

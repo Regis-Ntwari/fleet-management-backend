@@ -1,7 +1,7 @@
 package com.limoz.fleet.driver.dto;
 
-import com.limoz.fleet.driver.DriverStatus;
-import com.limoz.fleet.driver.EmploymentStatus;
+import com.limoz.fleet.driver.domain.DriverStatus;
+import com.limoz.fleet.driver.domain.EmploymentStatus;
 
 import java.time.Instant;
 import java.time.LocalDate;

@@ -1,7 +1,7 @@
 package com.limoz.fleet.fuel.dto;
 
-import com.limoz.fleet.fuel.FuelPaymentMethod;
-import com.limoz.fleet.vehicle.FuelType;
+import com.limoz.fleet.fuel.domain.FuelPaymentMethod;
+import com.limoz.fleet.vehicle.domain.FuelType;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.Min;

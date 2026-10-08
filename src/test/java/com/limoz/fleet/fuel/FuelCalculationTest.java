@@ -1,5 +1,7 @@
 package com.limoz.fleet.fuel;
 
+import com.limoz.fleet.fuel.domain.FuelCalculator;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

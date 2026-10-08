@@ -1,5 +1,8 @@
 package com.limoz.fleet.booking;
 
+import com.limoz.fleet.booking.domain.BookingCalculations;
+import com.limoz.fleet.booking.domain.PricingType;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

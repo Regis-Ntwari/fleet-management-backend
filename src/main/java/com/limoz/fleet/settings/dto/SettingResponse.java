@@ -1,6 +1,6 @@
 package com.limoz.fleet.settings.dto;
 
-import com.limoz.fleet.settings.SettingValueType;
+import com.limoz.fleet.settings.domain.SettingValueType;
 
 import java.time.Instant;
 

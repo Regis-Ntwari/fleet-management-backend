@@ -1,6 +1,6 @@
 package com.limoz.fleet.driver.dto;
 
-import com.limoz.fleet.driver.EmploymentStatus;
+import com.limoz.fleet.driver.domain.EmploymentStatus;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;

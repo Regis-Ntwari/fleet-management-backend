@@ -1,6 +1,6 @@
 package com.limoz.fleet.trip.dto;
 
-import com.limoz.fleet.trip.TripStatus;
+import com.limoz.fleet.trip.domain.TripStatus;
 
 import java.time.LocalDate;
 import java.util.List;

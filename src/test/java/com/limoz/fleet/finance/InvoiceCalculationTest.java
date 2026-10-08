@@ -1,5 +1,9 @@
 package com.limoz.fleet.finance;
 
+import com.limoz.fleet.finance.domain.InvoiceCalculator;
+import com.limoz.fleet.finance.domain.InvoiceStatus;
+import com.limoz.fleet.finance.domain.PaymentTerms;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

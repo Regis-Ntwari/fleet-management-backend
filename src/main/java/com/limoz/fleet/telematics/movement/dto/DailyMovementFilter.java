@@ -1,7 +1,7 @@
 package com.limoz.fleet.telematics.movement.dto;
 
-import com.limoz.fleet.telematics.movement.MovementDataSource;
-import com.limoz.fleet.telematics.movement.MovementFlag;
+import com.limoz.fleet.telematics.movement.domain.MovementDataSource;
+import com.limoz.fleet.telematics.movement.domain.MovementFlag;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;

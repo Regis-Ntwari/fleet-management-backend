@@ -1,6 +1,6 @@
 package com.limoz.fleet.booking.dto;
 
-import com.limoz.fleet.booking.VoucherStatus;
+import com.limoz.fleet.booking.domain.VoucherStatus;
 
 import java.time.LocalDate;
 import java.util.List;

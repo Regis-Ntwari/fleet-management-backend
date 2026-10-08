@@ -1,6 +1,6 @@
 package com.limoz.fleet.maintenance.dto;
 
-import com.limoz.fleet.maintenance.TaskStatus;
+import com.limoz.fleet.maintenance.domain.TaskStatus;
 
 import java.math.BigDecimal;
 import java.time.Instant;
