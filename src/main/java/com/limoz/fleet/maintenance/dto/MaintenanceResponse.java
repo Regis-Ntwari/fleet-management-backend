@@ -1,0 +1,69 @@
+package com.limoz.fleet.maintenance.dto;
+
+import com.limoz.fleet.maintenance.GarageDayBand;
+import com.limoz.fleet.maintenance.MaintenanceRecordStatus;
+import com.limoz.fleet.maintenance.MaintenanceType;
+import com.limoz.fleet.maintenance.PaymentStatus;
+import com.limoz.fleet.maintenance.Priority;
+import com.limoz.fleet.maintenance.WorkshopType;
+import com.limoz.fleet.vehicle.dto.VehicleSummary;
+
+import java.math.BigDecimal;
+import java.time.Instant;
+import java.time.LocalDate;
+
+public record MaintenanceResponse(
+        Long id,
+        String maintenanceNumber,
+        String intakeNumber,
+        VehicleSummary vehicle,
+        Instant reportedAt,
+        Long reportedByUserId,
+        Long customerId,
+        String customerName,
+        String ownerName,
+        String department,
+        Long driverId,
+        String driverName,
+        String driverContact,
+        String complaint,
+        String visibleCondition,
+        MaintenanceType maintenanceType,
+        Priority priority,
+        Long workshopId,
+        String workshopName,
+        WorkshopType workshopType,
+        Long technicianUserId,
+        String technicianName,
+        Long managerUserId,
+        Long incidentId,
+        Long odometerKm,
+        Instant startedAt,
+        LocalDate expectedCompletionAt,
+        Instant completedAt,
+        Instant releasedAt,
+        String gatePassNumber,
+        LocalDate reviewDate,
+        String diagnosis,
+        String observedFaults,
+        String recommendedRepair,
+        String labourNotes,
+        String servicePerformed,
+        BigDecimal laborCost,
+        BigDecimal partsCost,
+        BigDecimal otherCost,
+        BigDecimal totalCost,
+        BigDecimal amountPaid,
+        BigDecimal balanceDue,
+        PaymentStatus paymentStatus,
+        MaintenanceRecordStatus status,
+        Long approvedByUserId,
+        Instant approvedAt,
+        String cancellationReason,
+        String comments,
+        long daysInGarage,
+        GarageDayBand daysInGarageBand,
+        Instant createdAt,
+        Instant updatedAt,
+        String createdBy,
+        String updatedBy) {}
