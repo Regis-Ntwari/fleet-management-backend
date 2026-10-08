@@ -59,22 +59,6 @@ services:
       start_period: 90s
       retries: 5
 
-  # React/Vite frontend - enable with `--profile frontend` once the ./frontend project exists.
-  frontend:
-    profiles: ["frontend"]
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
-    image: limoz/fleet-operations-frontend:${APP_VERSION:-local}
-    container_name: fleet-frontend
-    restart: unless-stopped
-    depends_on:
-      - backend
-    environment:
-      VITE_API_BASE_URL: ${VITE_API_BASE_URL:-http://localhost:8080}
-    ports:
-      - "${FRONTEND_PORT:-5173}:80"
-
 volumes:
   postgres-data:
   backend-uploads:
