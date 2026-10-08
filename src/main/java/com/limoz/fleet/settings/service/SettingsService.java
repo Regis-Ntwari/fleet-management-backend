@@ -55,6 +55,12 @@ public class SettingsService {
         return Integer.parseInt(get(key).trim());
     }
 
+    /** Integer setting with a fallback for keys that may be absent on older databases. */
+    public int getIntOrDefault(String key, int defaultValue) {
+        String value = all().get(key);
+        return value == null || value.isBlank() ? defaultValue : Integer.parseInt(value.trim());
+    }
+
     public BigDecimal getDecimal(String key) {
         return new BigDecimal(get(key).trim());
     }
