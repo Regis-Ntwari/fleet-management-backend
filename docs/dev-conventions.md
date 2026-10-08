@@ -10,18 +10,27 @@ Flyway, PostgreSQL, Caffeine cache, springdoc-openapi 3, Lombok, JUnit 5 + Mocki
 Zonky embedded PostgreSQL for integration tests (no Docker needed).
 
 ## Package layout
+Every module is a package under `com.limoz.fleet` split by layer:
 ```
 com.limoz.fleet.<module>/
-  <Entity>.java               JPA entity, extends common.persistence.BaseEntity (id, createdAt/By, updatedAt/By, version)
-  <Enum>.java                 status/type enums - values MUST match the CHECK constraints in db/migration/V*.sql
-  <Entity>Repository.java     JpaRepository + JpaSpecificationExecutor; @EntityGraph for list/detail loads (no N+1)
-  dto/                        Java records: <X>Request (bean validation), <X>Response, <X>Summary, <X>Filter
-  <Module>Mapper.java         @Component with hand-written toResponse()/toSummary() (no MapStruct)
-  <Module>Service.java        @Service @Transactional; all business rules live here
-  <Module>Controller.java     @RestController @RequestMapping("/api/v1/...") with @PreAuthorize on every method
+  controller/   @RestController classes - HTTP only, @PreAuthorize on every method, no business logic
+  domain/       JPA entities, enums (values MUST match the CHECK constraints in db/migration/V*.sql), pure
+                calculators/state machines, domain events, module setting-key constants
+  dto/          Java records: <X>Request (bean validation), <X>Response, <X>Summary, <X>Filter
+  mapper/       @Component with hand-written toResponse()/toSummary() (no MapStruct)
+  repository/   JpaRepository + JpaSpecificationExecutor, <X>Specifications, aggregate/native query helpers;
+                @EntityGraph for list/detail loads (no N+1)
+  service/      @Service @Transactional classes - all business rules, audit calls, events; also event
+                listeners, importers/exporters, report providers, search/timeline sources, alert scanners
+  job/          @Scheduled jobs (cron from fleet.jobs.* / fleet.telematics.*, zone fleet.timezone)
 ```
-The database schema is fixed by the Flyway migrations `V1`-`V7`. **Do not add or alter tables in a new
-migration unless a column is genuinely missing**; map entities to the existing columns exactly
+Sub-modules (`maintenance.inventory`, `telematics.movement`, `notification.alert`, `vehicle.timeline`,
+`reporting.export`) follow the same layer split. Platform packages `common`, `config` and `security` keep their
+own structure. Tests live in `src/test/java/com/limoz/fleet/<module>/` (module root package) and import the
+layered classes.
+
+The database schema is fixed by the Flyway migrations `V1`-`V7` (+ `V8x` module settings). **Do not add or alter
+tables in a new migration unless a column is genuinely missing**; map entities to the existing columns exactly
 (`spring.jpa.hibernate.ddl-auto=validate` fails the start-up otherwise).
 
 ## Entities

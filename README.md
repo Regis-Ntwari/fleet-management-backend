@@ -170,19 +170,20 @@ src/main/java/com/limoz/fleet/
   config/        security, cache, OpenAPI, CORS, clock, JPA auditing, typed properties
   security/      JWT issue/validate, principal, permission & role constants, throttling
   common/        base entity, ApiError + global handler, PageResponse, reference numbers, events, specifications
-  auth/ user/    login/refresh/logout, users, roles, permissions
-  settings/      runtime settings (company profile + thresholds)
-  audit/         audit log + admin endpoint
-  storage/       attachments + FileStorage abstraction
-  vehicle/ driver/ assignment/ document/ customer/        fleet master data
-  booking/ trip/                                          bookings, dispatch, vouchers, trips
-  fuel/ maintenance/ maintenance.inventory/               fuel, workshop, spare parts
-  incident/ finance/                                      incidents, fines, invoices, payments, expenses
-  telematics/ notification/                               GPS, daily movement, notifications, alerts
-  dashboard/ reporting/ search/ importer/ seed/           KPIs, reports & exports, global search, imports, seed data
+  <module>/      one package per business module, each split into
+      controller/  REST endpoints (@PreAuthorize on every method)
+      domain/      entities, enums, state machines, calculators, domain events
+      dto/         request / response / summary / filter records
+      mapper/      entity -> DTO mappers
+      repository/  Spring Data repositories, specifications, aggregate queries
+      service/     business rules, audit, events, importers, report providers, scanners
+      job/         scheduled jobs
+  modules: auth, user, settings, audit, storage, vehicle (+timeline), driver, assignment, document, customer,
+           booking, trip, fuel, maintenance (+inventory), incident, finance, telematics (+movement),
+           notification (+alert), dashboard, reporting (+export), search, importer, seed
 src/main/resources/db/migration/   Flyway migrations
-src/test/java/                     unit tests (*Test) and integration tests (*IT)
-docs/                              analysis, requirements & architecture, conventions
+src/test/java/                     unit tests (*Test) and integration tests (*IT), one package per module
+docs/                              analysis, requirements & architecture, frontend guide, conventions
 ```
 
 Contribution rules for new modules: `docs/dev-conventions.md`.
