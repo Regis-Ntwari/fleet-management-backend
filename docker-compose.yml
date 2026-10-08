@@ -1,0 +1,80 @@
+# LIMOZ Fleet Operations - local / single-host deployment
+#   docker compose up -d --build            -> PostgreSQL + backend (dev profile, seeded data)
+#   docker compose --profile frontend up -d -> also the React frontend (once ./frontend exists)
+services:
+  postgres:
+    image: postgres:17-alpine
+    container_name: fleet-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${DB_NAME:-limoz_fleet}
+      POSTGRES_USER: ${DB_USERNAME:-limoz}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-limoz}
+      TZ: Africa/Kigali
+    ports:
+      - "${DB_PORT:-5432}:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USERNAME:-limoz} -d ${DB_NAME:-limoz_fleet}"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: limoz/fleet-operations-backend:${APP_VERSION:-local}
+    container_name: fleet-backend
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      SPRING_PROFILES_ACTIVE: ${SPRING_PROFILES_ACTIVE:-dev}
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: ${DB_NAME:-limoz_fleet}
+      DB_USERNAME: ${DB_USERNAME:-limoz}
+      DB_PASSWORD: ${DB_PASSWORD:-limoz}
+      JWT_SECRET: ${JWT_SECRET:-}
+      JWT_ACCESS_TTL: ${JWT_ACCESS_TTL:-PT15M}
+      JWT_REFRESH_TTL: ${JWT_REFRESH_TTL:-P14D}
+      ADMIN_EMAIL: ${ADMIN_EMAIL:-admin@limoz.rw}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-}
+      SEED_DATA: ${SEED_DATA:-true}
+      CORS_ALLOWED_ORIGINS: ${CORS_ALLOWED_ORIGINS:-http://localhost:5173,http://localhost:3000}
+      FLEET_TIMEZONE: ${FLEET_TIMEZONE:-Africa/Kigali}
+      SWAGGER_ENABLED: ${SWAGGER_ENABLED:-true}
+      TELEMATICS_PROVIDER: ${TELEMATICS_PROVIDER:-none}
+    ports:
+      - "${SERVER_PORT:-8080}:8080"
+    volumes:
+      - backend-uploads:/app/data/uploads
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://localhost:8080/actuator/health/readiness"]
+      interval: 30s
+      timeout: 5s
+      start_period: 90s
+      retries: 5
+
+  # React/Vite frontend - enable with `--profile frontend` once the ./frontend project exists.
+  frontend:
+    profiles: ["frontend"]
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    image: limoz/fleet-operations-frontend:${APP_VERSION:-local}
+    container_name: fleet-frontend
+    restart: unless-stopped
+    depends_on:
+      - backend
+    environment:
+      VITE_API_BASE_URL: ${VITE_API_BASE_URL:-http://localhost:8080}
+    ports:
+      - "${FRONTEND_PORT:-5173}:80"
+
+volumes:
+  postgres-data:
+  backend-uploads:

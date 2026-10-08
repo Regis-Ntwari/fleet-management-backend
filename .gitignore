@@ -19,3 +19,6 @@ data/
 .apt_generated/
 .sts4-cache/
 .DS_Store
+
+# Claude Code agent worktrees
+.claude/
