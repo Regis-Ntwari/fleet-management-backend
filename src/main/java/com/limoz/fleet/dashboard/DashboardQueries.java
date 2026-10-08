@@ -66,7 +66,7 @@ public class DashboardQueries {
         return "(" + column + " AT TIME ZONE '" + zone.getId() + "')::date";
     }
 
-    static BigDecimal nz(BigDecimal v) {
+    public static BigDecimal nz(BigDecimal v) {
         return v == null ? BigDecimal.ZERO : v;
     }
 }
