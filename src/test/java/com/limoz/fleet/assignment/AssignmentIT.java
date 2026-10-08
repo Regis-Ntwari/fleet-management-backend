@@ -55,6 +55,10 @@ class AssignmentIT extends AbstractIntegrationTest {
                 .andExpect(jsonPath("$.currentDriverId").doesNotExist());
         mockMvc.perform(get("/api/v1/assignments/vehicle/" + vehicle.id()).header("Authorization", adminToken))
                 .andExpect(jsonPath("$.totalElements").value(1));
+        mockMvc.perform(get("/api/v1/vehicles/" + vehicle.id() + "/timeline").header("Authorization", adminToken))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$[?(@.category=='ASSIGNMENT')].title").isNotEmpty())
+                .andExpect(jsonPath("$[?(@.category=='STATUS')].title").isNotEmpty());
     }
 
     @Test
