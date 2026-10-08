@@ -1,5 +1,5 @@
 # ---------- build stage ----------
-FROM eclipse-temurin:21-jdk-alpine AS build
+FROM eclipse-temurin:25-jdk-alpine AS build
 WORKDIR /workspace
 COPY .mvn/ .mvn/
 COPY mvnw pom.xml ./
@@ -9,7 +9,7 @@ RUN ./mvnw -q -B clean package -DskipTests && \
     java -Djarmode=tools -jar target/fleet-operations-backend.jar extract --layers --destination extracted
 
 # ---------- runtime stage ----------
-FROM eclipse-temurin:21-jre-alpine AS runtime
+FROM eclipse-temurin:25-jre-alpine AS runtime
 LABEL org.opencontainers.image.title="LIMOZ Fleet Operations Backend" \
       org.opencontainers.image.source="https://github.com/limoz-rwanda/fleet-operations-backend"
 RUN addgroup -S fleet && adduser -S fleet -G fleet && \
