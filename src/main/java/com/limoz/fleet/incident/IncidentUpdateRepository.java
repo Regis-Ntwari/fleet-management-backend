@@ -1,0 +1,10 @@
+package com.limoz.fleet.incident;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.List;
+
+public interface IncidentUpdateRepository extends JpaRepository<IncidentUpdate, Long> {
+
+    List<IncidentUpdate> findByIncidentIdOrderByCreatedAtAscIdAsc(Long incidentId);
+}
