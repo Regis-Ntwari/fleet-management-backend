@@ -64,7 +64,7 @@ public record ReportTable(
         }
 
         public Builder row(Object... values) {
-            rows.add(new ArrayList<>(List.of(values).stream().map(v -> v == null ? "" : v).toList()));
+            rows.add(new ArrayList<>(java.util.Arrays.stream(values).map(v -> v == null ? "" : v).toList()));
             return this;
         }
 
@@ -74,7 +74,7 @@ public record ReportTable(
         }
 
         public Builder totals(Object... values) {
-            totals = new ArrayList<>(List.of(values).stream().map(v -> v == null ? "" : v).toList());
+            totals = new ArrayList<>(java.util.Arrays.stream(values).map(v -> v == null ? "" : v).toList());
             return this;
         }
 

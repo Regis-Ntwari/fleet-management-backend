@@ -64,7 +64,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(MaxUploadSizeExceededException.class)
     public ResponseEntity<ApiError> handleUploadSize(MaxUploadSizeExceededException ex, HttpServletRequest req) {
-        return build(HttpStatus.PAYLOAD_TOO_LARGE, "File Too Large", "Uploaded file exceeds the allowed size", req, "FILE_TOO_LARGE", null);
+        return build(HttpStatus.CONTENT_TOO_LARGE, "File Too Large", "Uploaded file exceeds the allowed size", req, "FILE_TOO_LARGE", null);
     }
 
     @ExceptionHandler(ResourceNotFoundException.class)
@@ -108,7 +108,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(BusinessRuleException.class)
     public ResponseEntity<ApiError> handleBusinessRule(BusinessRuleException ex, HttpServletRequest req) {
-        return build(HttpStatus.UNPROCESSABLE_ENTITY, "Business Rule Violation", ex.getMessage(), req,
+        return build(HttpStatus.UNPROCESSABLE_CONTENT, "Business Rule Violation", ex.getMessage(), req,
                 ex.getCode() != null ? ex.getCode() : "BUSINESS_RULE", null);
     }
 
