@@ -46,14 +46,14 @@ jobs:
 
       - name: Upload coverage report
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: jacoco-report
           path: target/site/jacoco
           retention-days: 14
 
       - name: Upload application jar
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: fleet-operations-backend
           path: target/fleet-operations-backend.jar
