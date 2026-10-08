@@ -48,6 +48,22 @@ public abstract class AbstractIntegrationTest {
         return authService.login(new LoginRequest(email, password));
     }
 
+    /** Bearer token for a user holding exactly one role (created on first use). */
+    protected String tokenFor(String roleCode) {
+        String email = roleCode.toLowerCase() + "@test.limoz.rw";
+        if (userRepository.findByEmailIgnoreCase(email).isEmpty()) {
+            userService.create(new com.limoz.fleet.user.dto.CreateUserRequest(roleCode, "Tester", email, null, null,
+                    "Test@12345", java.util.Set.of(roleCode), null, false));
+        }
+        return "Bearer " + login(email, "Test@12345").accessToken();
+    }
+
+    @Autowired
+    protected com.limoz.fleet.user.UserService userService;
+
+    @Autowired
+    protected com.limoz.fleet.user.UserRepository userRepository;
+
     protected String toJson(Object value) {
         return json.writeValueAsString(value);
     }
